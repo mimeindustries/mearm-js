@@ -1,0 +1,15 @@
+{
+  "name": "MeArm",
+  "version": "0.0.1",
+  "description": "A library and app for controlling the MeArm (http://mearm.io) on the Raspberry Pi and other devices",
+  "author": "Ben Pirt <ben@pirt.co.uk>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjpirt/mearm-js"
+  },
+  "dependencies": {
+    "ws": "1.1.0",
+    "pigpio": "0.3.2"
+  },
+  "license": "MIT"
+}

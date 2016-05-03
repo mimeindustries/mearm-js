@@ -1,2 +1,4 @@
-# mearm-js
-A node.js module for controlling the MeArm on a Raspberry Pi
+MeArm JS
+========
+
+This is a library and standalone app to control a MeArm (http://mearm.com) from a RaspBerry Pi or other devices.

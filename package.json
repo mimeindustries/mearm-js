@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "ws": "1.1.0",
-    "pigpio": "0.3.2"
+    "pigpio": "0.3.2",
+    "i2c-bus": "1.1.2"
   },
   "license": "MIT"
 }

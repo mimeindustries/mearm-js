@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <title>Python</title>
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+        <link type="text/css" rel="stylesheet" href="/assets/main-6ed54ad778366dfd27d8a8a350e88bc32fc5d804883137ae31b7a3fe6eb6795a.css">
+        <script type="text/javascript" src="/assets/main-f7f59805fc2013df1a1903ddf51948fe742e730eb76c6a8c62c6d19d022960a1.js"></script>
+        
+        
+          
+            <link type="text/css" rel="stylesheet" href="/assets/editor-29fe02da9ee8890f39954f79b941edbec113db15531372974f27f32929bd8baf.css">
+          
+        
+    </head>
+    <body>
+
+      <div id="header">
+
+        <div id="menu">
+          <div id="sim" class="menuItem hidden"></div>
+          <div id="fullscreen" class="menuItem"><i class="icon fa fa-expand fa-2x"></i></div>
+          <div id="conn" class="menuItem"><i class="icon fa fa-wifi fa-2x"></i></div>
+          <div id="l10n" class="menuItem hidden"><i class="icon fa fa-globe fa-2x"></i></div>
+          <div id="save" class="menuItem hidden"><i class="icon fa fa-save fa-2x"></i></div>
+        </div>
+        <h1 class="title"><a href="/"><img src="/assets/logo_sm.png" alt="MeArm Apps" /></a></h1>
+
+      </div>
+
+      <div id="app">
+<pre id="editor">from mearm import Mearm
+
+m = Mearm()
+
+def wave_arm(times):
+    for i in range(times):
+        m.moveLowerTo(85)
+        m.moveUpperTo(0)
+        m.moveBaseTo(85)
+        m.openGrip()
+        m.closeGrip()
+        m.moveBaseTo(-85)
+        m.moveLowerTo(20)
+        m.moveBaseTo(0)
+        m.openGrip()
+        m.closeGrip()
+        m.moveLowerTo(85)
+        m.moveUpperTo(0)
+
+wave_arm(1)
+
+</pre>
+<button id="helpButton" data-l10n=":show-help">Show help</button>
+<div id="help">
+  <h2 data-l10n=":js-help-title">Controlling MeArm with Javascript</h2>
+  <p data-l10n=":js-help-intro">Use these simple commands to get started controlling MeArm:</p>
+  <ul>
+    <li><em>mearm.openGrip()</em> - <span data-l10n=":js-openGrip-help">open the grip</span></li>
+    <li><em>mearm.closeGrip()</em> - <span data-l10n=":js-closeGrip-help">close the grip</span></li>
+    <li><em>mearm.moveBaseTo(angle)</em> - <span data-l10n=":js-moveBaseTo-help">turn the base to the angle</span></li>
+    <li><em>mearm.moveLowerTo(angle)</em> - <span data-l10n=":js-moveLowerTo-help">turn the lower part to the angle</span></li>
+    <li><em>mearm.moveUpperTo(angle)</em> - <span data-l10n=":js-moveUpperTo-help">turn the upper part to the angle</span></li>
+    <li><em>mearm.moveGripTo(angle)</em> - <span data-l10n=":js-moveGripTo-help">turn the grip to the angle</span></li>
+  </ul>
+</div>
+<div id="controlBar"><button class="run">&#9654; <span data-l10n=":run">Run</span></button><button class="pause" style="display:none;">&#10074;&#10074; <span data-l10n=":pause">Pause</span></button><button class="stop">&#9724; <span data-l10n=":stop">Stop</span></button><button class="clear">&#10006; <span data-l10n=":clear">Clear</span></button></div>
+<script type="text/javascript" src="/assets/python/app-58677f5d5c1779c863310c05ff78360a32a17f45e0898a06e2f3497c3ebdc27d.js"></script>
+</div>
+
+    </body>
+</html>

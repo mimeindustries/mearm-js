@@ -1,0 +1,24 @@
+CACHE MANIFEST
+# 2016-10-06 14:35:11 +0100
+
+FALLBACK:
+/ /fallback.html
+
+NETWORK:
+*
+
+CACHE:
+/assets/main-f7f59805fc2013df1a1903ddf51948fe742e730eb76c6a8c62c6d19d022960a1.js
+/assets/main-6ed54ad778366dfd27d8a8a350e88bc32fc5d804883137ae31b7a3fe6eb6795a.css
+/assets/logo_lg.png
+/assets/logo_sm.png
+/
+
+/assets/apps/blockly/icon.jpg
+
+/assets/apps/javascript/icon.jpg
+
+/assets/apps/python/icon.jpg
+
+/assets/apps/snap/icon.jpg
+

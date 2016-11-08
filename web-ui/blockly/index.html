@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <title>New Blockly</title>
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+        <link type="text/css" rel="stylesheet" href="/assets/main-6ed54ad778366dfd27d8a8a350e88bc32fc5d804883137ae31b7a3fe6eb6795a.css">
+        <script type="text/javascript" src="/assets/main-f7f59805fc2013df1a1903ddf51948fe742e730eb76c6a8c62c6d19d022960a1.js"></script>
+        
+        
+          
+            <link type="text/css" rel="stylesheet" href="/assets/editor-29fe02da9ee8890f39954f79b941edbec113db15531372974f27f32929bd8baf.css">
+          
+        
+    </head>
+    <body>
+
+      <div id="header">
+
+        <div id="menu">
+          <div id="sim" class="menuItem hidden"></div>
+          <div id="fullscreen" class="menuItem"><i class="icon fa fa-expand fa-2x"></i></div>
+          <div id="conn" class="menuItem"><i class="icon fa fa-wifi fa-2x"></i></div>
+          <div id="l10n" class="menuItem hidden"><i class="icon fa fa-globe fa-2x"></i></div>
+          <div id="save" class="menuItem hidden"><i class="icon fa fa-save fa-2x"></i></div>
+        </div>
+        <h1 class="title"><a href="/"><img src="/assets/logo_sm.png" alt="MeArm Apps" /></a></h1>
+
+      </div>
+
+      <div id="app">
+<div id="editor" class="hidden"></div>
+<div id="controlBar" class="hidden"><button class="run">&#9654; <span data-data-l10n=":run">Run</span></button><button class="pause" style="display:none;">&#10074;&#10074; <span data-data-l10n=":pause">Pause</span></button><button class="stop">&#9724; <span data-data-l10n=":stop">Stop</span></button><button class="clear">&#10006; <span data-data-l10n=":clear">Clear</span></button></div>
+<xml id="toolbox" style="display: none">
+  <category name="MeArm" colour="0">
+    <block type="mearm_moveBaseTo"><value name="ANGLE"><block type="math_number"><field name="NUM">0</field></block></value></block>
+    <block type="mearm_moveLowerTo"><value name="ANGLE"><block type="math_number"><field name="NUM">45</field></block></value></block>
+    <block type="mearm_moveUpperTo"><value name="ANGLE"><block type="math_number"><field name="NUM">45</field></block></value></block>
+    <block type="mearm_moveGripTo"><value name="ANGLE"><block type="math_number"><field name="NUM">90</field></block></value></block>
+    <block type="mearm_openGrip"></block>
+    <block type="mearm_closeGrip"></block>
+  </category>
+  <category name="Logic" colour="210" data-l10n=":logic">
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="logic_negate"></block>
+    <block type="logic_boolean"></block>
+    <block type="logic_ternary"></block>
+  </category>
+  <category name="Loops" colour="120" data-l10n=":loops">
+    <block type="controls_repeat_ext"><value name="TIMES"><block type="math_number"><field name="NUM">10</field></block></value></block>
+    <block type="controls_whileUntil"></block>
+    <block type="controls_for"><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_number"><field name="NUM">10</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value></block>
+    <block type="controls_forEach"></block>
+    <block type="controls_flow_statements"></block>
+  </category>
+  <category name="Math" colour="230" data-l10n=":math">
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="math_single"></block>
+    <block type="math_trig"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_change"><value name="DELTA"><block type="math_number"><field name="NUM">1</field></block></value></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain"><value name="LOW"><block type="math_number"><field name="NUM">1</field></block></value><value name="HIGH"><block type="math_number"><field name="NUM">100</field></block></value></block>
+    <block type="math_random_int"><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_number"><field name="NUM">100</field></block></value></block><block type="math_random_float"></block>
+  </category>
+  <category name="Lists" colour="260" data-l10n=":lists">
+    <block type="lists_create_empty"></block>
+    <block type="lists_create_with"></block>
+    <block type="lists_repeat"><value name="NUM"><block type="math_number"><field name="NUM">5</field></block></value></block>
+    <block type="lists_length"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_indexOf"><value name="VALUE"><block type="variables_get"><field name="VAR">list</field></block></value></block>
+    <block type="lists_getIndex"><value name="VALUE"><block type="variables_get"><field name="VAR">list</field></block></value></block>
+    <block type="lists_setIndex"><value name="LIST"><block type="variables_get"><field name="VAR">list</field></block></value></block>
+    <block type="lists_getSublist"><value name="LIST"><block type="variables_get"><field name="VAR">list</field></block></value></block>
+  </category>
+  <category name="Variables" colour="330" custom="VARIABLE" data-l10n=":variables"></category>
+  <category name="Functions" colour="290" custom="PROCEDURE" data-l10n=":functions"></category></xml>
+<script type="text/javascript" src="/assets/blockly/app-8bfbc29898f2a8156e15c7fc2fb2836c9c9dbeb5a9824ee8f2cc03f907d8b99e.js"></script>
+</div>
+
+    </body>
+</html>

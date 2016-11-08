@@ -1,0 +1,123 @@
+#editor {
+  position: relative;
+  width: 100%; }
+
+#controlBar button {
+  color: #FFF;
+  font-size: 1.5em;
+  padding: 5px;
+  height: 40px;
+  vertical-align: top;
+  border: none;
+  width: 33.33%;
+  font-weight: bold;
+  margin: 0;
+  background: #BBB; }
+
+#controlBar button:focus {
+  outline-width: 0; }
+
+#controlBar .run {
+  background-color: #33D121; }
+
+#controlBar .run:hover {
+  background-color: #2CAD1D; }
+
+#controlBar .run:active {
+  background-color: #218216; }
+
+#controlBar .stop {
+  background-color: #888; }
+
+#controlBar .stop:hover {
+  background-color: #444; }
+
+#controlBar .stop:active {
+  background-color: #000; }
+
+#controlBar .clear {
+  background-color: #BBB; }
+
+#controlBar .clear:hover {
+  background-color: #777; }
+
+#controlBar .clear:active {
+  background-color: #444; }
+
+#controlBar .disabled {
+  background-color: #BBB; }
+
+#controlBar .disabled:hover {
+  background-color: #BBB; }
+
+#controlBar.notReady .run {
+  background-color: #BBB; }
+
+#controlBar.notReady .stop {
+  background-color: #AAA; }
+
+#helpButton {
+  position: absolute;
+  top: 75px;
+  right: 15px;
+  z-index: 1000; }
+
+#help {
+  position: absolute;
+  width: 40%;
+  overflow: auto;
+  right: 15px;
+  top: 100px;
+  height: 500px;
+  display: none;
+  z-index: 1500;
+  background: #FFF;
+  border: 1px solid #DDD;
+  padding: 10px; }
+
+#help h2 {
+  font-weight: bold;
+  font-size: 120%; }
+
+#help p {
+  font-size: 90%;
+  margin: 10px 0; }
+
+#help li {
+  font-size: 90%;
+  margin: 5px 0 5px 15px; }
+
+#help em {
+  font-style: italic; }
+
+#console {
+  position: absolute;
+  bottom: 60px;
+  right: 10px; }
+
+#console button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px; }
+
+#console.show-console .showButton {
+  display: none; }
+
+#console.hide-console .hideButton {
+  display: none; }
+
+#console.hide-console pre {
+  display: none; }
+
+#console pre {
+  overflow: auto;
+  min-height: 50px;
+  min-width: 200px;
+  height: 120px;
+  width: 500px;
+  background-color: #EEE;
+  border: 2px solid #AAA;
+  font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  line-height: 1.5em;
+  font-size: 75%;
+  padding: 5px; }

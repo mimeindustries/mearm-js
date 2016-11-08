@@ -1,0 +1,23 @@
+{
+  "name": "MeArm",
+  "description": "An app that lets you control MeArm using a number of different programming tools",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "23",
+  "permissions":[
+  	"storage"
+  ],
+  "app": {
+    "background": {
+      "scripts": ["chrome.js"]
+    }
+  },
+  "icons": { "16": "assets/chromeLogo-16.png", "48": "assets/chromeLogo-48.png" , "128": "assets/chromeLogo-128.png" },
+  "sandbox": {
+    "pages": [
+      "blockly/index.html",
+      "javascript/index.html",
+      "python/index.html"
+    ]
+  }
+}

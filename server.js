@@ -7,7 +7,7 @@ var HttpServer  = require('./lib/HttpServer.js').HttpServer,
     joysticks   = new PiJoysticks(arm);
 
 // Set up the http server for serving out our static UI
-var httpd = new HttpServer('./web-ui', 8080);
+var httpd = new HttpServer('./web-ui', 80);
 
 // Set up the WebSocket server
 var s = new WsServer({port: 8899});

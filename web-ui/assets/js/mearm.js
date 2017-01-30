@@ -141,6 +141,10 @@ Mearm.prototype = {
     this.send({cmd:'moveGripTo', arg: angle}, cb);
   },
 
+  getServoState: function(cb){
+    this.send({cmd:'getServoState'}, cb);
+  },
+
   stop: function(cb){
     var self = this;
     this.send({cmd:'stop'}, function(state, msg, recursion){
@@ -179,7 +183,7 @@ Mearm.prototype = {
       this.cbs[msg.id] = cb;
     }
     if(msg.arg){ msg.arg = msg.arg.toString(); }
-    if(['stop', 'pause', 'resume', 'ping', 'version'].indexOf(msg.cmd) >= 0){
+    if(['stop', 'pause', 'resume', 'ping', 'version', 'getServoState'].indexOf(msg.cmd) >= 0){
       this.send_msg(msg);
     }else{
       if(this.msg_stack.length === 0){
@@ -213,9 +217,8 @@ Mearm.prototype = {
     if(typeof msg === 'object' && typeof msg.data === 'string') msg = JSON.parse(msg.data);
     console.log(msg);
     clearTimeout(this.timeoutTimer);
-    if(msg.status === 'notify'){
-      this.emitEvent(msg.id, msg.msg);
-      this.sensorState[msg.id] = msg.msg;
+    if(msg.id === 'notify'){
+      this.emitEvent(msg.status, msg.msg);
       return;
     }
     if(this.msg_stack.length > 0 && this.msg_stack[0].id == msg.id){

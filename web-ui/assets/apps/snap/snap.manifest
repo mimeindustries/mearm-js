@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-10-06 14:35:11 +0100
+# 2017-01-30 15:44:43 +0000
 
 FALLBACK:
 / /fallback.html
@@ -8,8 +8,8 @@ NETWORK:
 *
 
 CACHE:
-/assets/main-f7f59805fc2013df1a1903ddf51948fe742e730eb76c6a8c62c6d19d022960a1.js
-/assets/main-6ed54ad778366dfd27d8a8a350e88bc32fc5d804883137ae31b7a3fe6eb6795a.css
+/assets/main-5252037a1aadb3e4ad9dea248c72750c0a183a95cecca71d28d28b7ed8779821.js
+/assets/main-c32843282f1ef02371c2484fc73faddccc775475a005bce0ce67396db74dfb3f.css
 /assets/logo_lg.png
 /assets/logo_sm.png
 /assets/snap/app-1ec21163b93df1ff5ae8523ba09ba83547068ea66e5d72825f2c516fb4cb0a86.js

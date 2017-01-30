@@ -8,7 +8,9 @@
     "url": "https://github.com/bjpirt/mearm-js"
   },
   "dependencies": {
-    "ws": "1.1.0",
+    "ws": "1.1.0"
+  },
+  "optionalDependencies":{
     "pigpio": "0.3.2",
     "i2c-bus": "1.1.2"
   },

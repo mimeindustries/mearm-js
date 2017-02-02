@@ -2,15 +2,17 @@ var HttpServer  = require('./lib/HttpServer.js').HttpServer,
     WebSocket   = require('ws'),
     WsServer    = WebSocket.Server,
     MiroComms   = require('./lib/MiroComms.js').MiroComms;
-    
+
 try{
   var MeArmPi   = require('./lib/MeArmPi.js').MeArmPi,
     PiJoysticks = require('./lib/PiJoysticks.js').PiJoysticks,
-    joysticks   = new PiJoysticks(arm),
     arm         = new MeArmPi();
+    joysticks   = new PiJoysticks(arm),
+  console.log("Booting on Raspberry Pi");
 }catch(e){
   var DummyArm = require('./lib/DummyArm.js').DummyArm,
       arm      = new DummyArm();
+  console.log("Booting with dummy arm");
 }
 
 var comms = new MiroComms(arm);

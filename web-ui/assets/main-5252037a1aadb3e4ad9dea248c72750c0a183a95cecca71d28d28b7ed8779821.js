@@ -713,9 +713,11 @@ var MeArmControlMenu = function(mearm, el){
     var slider = el.noUiSlider;
     slider.on('slide', sliderHandler(type))
     slider.on('start', function(){
+    console.log("START");
       this.dragging = true;
     })
     slider.on('end', function(){
+    console.log("END");
       this.dragging = false;
     })
     return slider;
@@ -742,7 +744,7 @@ var MeArmControlMenu = function(mearm, el){
   }
   
   this.updateAngle = function(servo, angle){
-    self.el.querySelector('.' + servo).innerHTML = angle + '&deg;';
+    self.el.querySelector('.' + servo).innerHTML = Number(angle).toFixed(0) + '&deg;';
     if(!sliders[servo].dragging){
       sliders[servo].set(angle);
     }

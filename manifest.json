@@ -1,0 +1,8 @@
+{
+  "name": "MeArm",
+  "path": "mearm",
+  "type": "standalone",
+  "runcmd": "node index.js",
+  "installcmd": "npm install",
+  "category": "app"
+}

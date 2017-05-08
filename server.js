@@ -18,7 +18,8 @@ try{
 var comms = new MiroComms(arm);
 
 // Set up the http server for serving out our static UI
-var httpd = new HttpServer('./web-ui', 80);
+var port = process.argv.length >= 3 ? process.argv[2] : 80
+var httpd = new HttpServer('./web-ui', port);
 
 // Set up the WebSocket server
 var s = new WsServer({port: 8899});

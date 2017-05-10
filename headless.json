@@ -4,5 +4,6 @@
   "type": "standalone",
   "runcmd": "node server.js",
   "installcmd": "npm install",
-  "category": "app"
+  "category": "app",
+  "background: true
 }

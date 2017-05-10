@@ -2,7 +2,7 @@
   "name": "MeArm",
   "path": "mearm",
   "type": "standalone",
-  "runcmd": "node index.js {{PORT}}",
+  "runcmd": "node server.js",
   "installcmd": "npm install",
   "category": "app"
 }

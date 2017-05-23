@@ -1,0 +1,9 @@
+{
+  "name": "MeArm",
+  "path": "mearm",
+  "type": "standalone",
+  "runcmd": "node server.js --no-ui",
+  "installcmd": "npm install",
+  "category": "app",
+  "background": true
+}

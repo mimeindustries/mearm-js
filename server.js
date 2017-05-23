@@ -8,6 +8,8 @@ try{
     PiJoysticks = require('./lib/PiJoysticks.js').PiJoysticks,
     arm         = new MeArmPi();
     joysticks   = new PiJoysticks(arm),
+    statusLED   = require('./lib/StatusLED');
+  statusLED.start(5000);
   console.log("Booting on Raspberry Pi");
 }catch(e){
   var DummyArm = require('./lib/DummyArm.js').DummyArm,

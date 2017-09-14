@@ -6,12 +6,13 @@ var HttpServer  = require('./lib/HttpServer.js').HttpServer,
 try{
   var MeArmPi   = require('./lib/MeArmPi.js').MeArmPi,
     PiJoysticks = require('./lib/PiJoysticks.js').PiJoysticks,
-    arm         = new MeArmPi();
+    arm         = new MeArmPi(),
     joysticks   = new PiJoysticks(arm),
     statusLED   = require('./lib/StatusLED');
   statusLED.start(5000);
   console.log("Booting on Raspberry Pi");
 }catch(e){
+  console.log(e)
   var DummyArm = require('./lib/DummyArm.js').DummyArm,
       arm      = new DummyArm();
   console.log("Booting with dummy arm");

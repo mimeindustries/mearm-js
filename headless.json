@@ -5,5 +5,6 @@
   "runcmd": "node server.js --no-ui",
   "installcmd": "npm install",
   "category": "app",
-  "background": true
+  "background": true,
+  "description": "The base app for controlling the MeArm Pi"
 }

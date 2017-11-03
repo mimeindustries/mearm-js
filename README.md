@@ -30,6 +30,12 @@ The steps to manually install MeArm JS on to a fresh Raspberry Pi (running Stret
 
 `npm install`
 
+ - Enable I2C
+
+`sudo raspi-config`
+
+   Select "Interfacing Options" then select "I2C" and enable the interface
+
  - Run the server
 
 `sudo nodejs ./server.js`

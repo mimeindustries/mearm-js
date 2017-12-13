@@ -34,3 +34,10 @@ node_modules
 
 *.swo
 *.swp
+
+# Debian build files
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/mearm-js-headlesspi.substvars
+debian/mearm-js-headlesspi/

@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+DISTRIBUTION = $(shell lsb_release -sr)
+VERSION = 0.0.7
+PACKAGEVERSION = $(VERSION)-0~$(DISTRIBUTION)0
+INSTALLDIR = debian/mearm-js-headlesspi/usr/local/headlesspi/apps/mimeindustries__mearm-js
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -rf debian/mearm-js-headlesspi
+override_dh_auto_test:
+override_dh_usrlocal:
+override_dh_auto_build:
+override_dh_auto_install:
+	mkdir -p $(INSTALLDIR) 
+	rsync -av . $(INSTALLDIR) --exclude debian --exclude .git
+	cd $(INSTALLDIR)
+	npm install
+
+override_dh_gencontrol:
+	dh_gencontrol -- -v$(PACKAGEVERSION)

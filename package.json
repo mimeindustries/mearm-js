@@ -1,6 +1,6 @@
 {
   "name": "MeArm",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "A library and app for controlling the MeArm (http://mearm.io) on the Raspberry Pi and other devices",
   "author": "Ben Pirt <ben@pirt.co.uk>",
   "repository": {

@@ -39,5 +39,5 @@ node_modules
 debian/.debhelper/
 debian/debhelper-build-stamp
 debian/files
-debian/mearm-js-headlesspi.substvars
-debian/mearm-js-headlesspi/
+debian/mearm-js*
+!debian/mearm-js.service

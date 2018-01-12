@@ -1,7 +1,7 @@
 Source: mearm-js
 Maintainer: Ben Pirt <ben.pirt@mime.co.uk>
 
-Package: mearm-js-headlesspi
+Package: mearm-js
 Architecture: armhf
 Description: Control the MeArm with JS
-Depends: headlesspi (>= 0.1.2)
+Depends: nodejs (>= 4)

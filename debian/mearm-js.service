@@ -3,8 +3,8 @@ Description=A Node.js app to control your MeArm Pi over the network
 After=network.target
 
 [Service]
-WorkingDirectory=/usr/local/mearm-js
-ExecStart=/usr/local/mearm-js/bin/mearm-js --no-ui
+WorkingDirectory=/opt/mearm-js
+ExecStart=/opt/mearm-js/bin/mearm-js --no-ui
 StandardOutput=syslog+console
 StandardError=syslog+console
 Type=simple

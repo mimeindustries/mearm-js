@@ -4,4 +4,4 @@ Maintainer: Ben Pirt <ben.pirt@mime.co.uk>
 Package: mearm-js
 Architecture: armhf
 Description: Control the MeArm with JS
-Depends: nodejs (>= 4), pigpio (>=1.64-1
+Depends: nodejs (>= 4), pigpio (>=1.64-1)

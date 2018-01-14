@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if /etc/modules contains the i2c module
+grep i2c-dev /etc/modules > /dev/null
+
+if [ $? -eq 1 ]
+then
+  echo "Enabling I2C"
+  # add the i2c-dev module
+  echo -e "i2c-dev\n" >> /etc/modules
+  # make sure the line in config.txt has been uncommented
+  sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt
+  reboot
+fi
+
+

@@ -10,7 +10,6 @@ then
   echo -e "i2c-dev\n" >> /etc/modules
   # make sure the line in config.txt has been uncommented
   sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt
-  reboot
 fi
 
 

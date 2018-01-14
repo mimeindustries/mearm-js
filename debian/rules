@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 DISTRIBUTION = $(shell lsb_release -sr)
-VERSION = 0.0.8
+#VERSION = <passed in by VERSION environment variable>
 APPNAME = mearm-js
 PACKAGEVERSION = $(VERSION)
 INSTALLDIR = debian/${APPNAME}/opt/${APPNAME}

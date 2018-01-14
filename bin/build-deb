@@ -1,3 +1,4 @@
 #!/bin/bash
 
+export VERSION=$(node -p "require('./package.json').version")
 dpkg-buildpackage -us -uc -b

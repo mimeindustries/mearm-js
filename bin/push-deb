@@ -1,22 +1,16 @@
 #!/bin/bash
 
-if [ "$#" -ne 1 ]
+if [ "$#" -eq 1 ]
 then
-  echo "Usage: push-deb <filename>"
-  exit 1
+  DEBFILE=$1
+else
+  DEBFILE="../$(grep -oP ".*\.deb" debian/files | grep -v dbgsym)"
 fi
-
-DEBFILE=$1
 
 if [ ! -v PACKAGECLOUD_TOKEN ]
 then
-	echo "Set PACKAGECLOUD_TOKEN env variable first"
+  echo "Set PACKAGECLOUD_TOKEN env variable first"
   exit 1
-fi
-
-if [ $DEBFILE == "latest" ]
-then
-  DEBFILE="../$(grep -oP ".*\.deb" debian/files | grep -v dbgsym)"
 fi
 
 echo "Pushing $DEBFILE"

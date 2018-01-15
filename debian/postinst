@@ -12,4 +12,6 @@ then
   sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt
 fi
 
+# Make sure this service starts automatically
+systemctl start mearm-control
 

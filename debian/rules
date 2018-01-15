@@ -2,7 +2,7 @@
 
 DISTRIBUTION = $(shell lsb_release -sr)
 #VERSION = <passed in by VERSION environment variable>
-APPNAME = mearm-js
+APPNAME = mearm-control
 PACKAGEVERSION = $(VERSION)
 INSTALLDIR = debian/${APPNAME}/opt/${APPNAME}
 

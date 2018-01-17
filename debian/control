@@ -5,3 +5,5 @@ Package: mearm-control
 Architecture: armhf
 Description: Control the MeArm
 Depends: nodejs (>= 4), pigpio (>=1.64-1)
+Section: main
+Priority: Optional

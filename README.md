@@ -9,7 +9,9 @@ The steps to manually install MeArm JS on to a fresh Raspberry Pi (running Stret
  - Update the system:
 
 `sudo apt-get update`
+
 `sudo apt-get upgrade`
+
 `sudo apt-get dist-upgrade`
 
  - Update the npm version.

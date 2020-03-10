@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "wireless-tools": "git+https://git@github.com/headlessPi/wireless-tools.git",
-    "ws": "1.1.0"
+    "ws": "7.2.1"
   },
   "optionalDependencies": {
     "pigpio": "0.3.2",

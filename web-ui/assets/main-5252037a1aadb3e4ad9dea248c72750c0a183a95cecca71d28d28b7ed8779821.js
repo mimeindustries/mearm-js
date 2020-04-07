@@ -637,7 +637,7 @@ MirobotConnMenu = function(el){
     }
 
     var devEl = document.createElement('li');
-    devEl.innerHTML = '<p>' + l(':address') + ':</p><input type="text" placeholder="192.168.1.100" value=""/><button>' + l(':connect') + '</button>';
+    devEl.innerHTML = '<p>' + l(':address') + ':</p><input type="text" value="' + window.location.hostname +'"/><button>' + l(':connect') + '</button>';
     devEl.querySelector('input').addEventListener('keypress', function(e){
        if(e && e.keyCode == 13) return submit(e);
     })

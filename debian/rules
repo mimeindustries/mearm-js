@@ -1,23 +1,33 @@
 #!/usr/bin/make -f
 
-DISTRIBUTION = $(shell lsb_release -sr)
-#VERSION = <passed in by VERSION environment variable>
+# VERSION is passed in by bin/build-deb
 APPNAME = mearm-control
 PACKAGEVERSION = $(VERSION)
-INSTALLDIR = debian/${APPNAME}/opt/${APPNAME}
+INSTALLDIR = debian/$(APPNAME)/opt/$(APPNAME)
 
 %:
 	dh $@
 
 override_dh_auto_clean:
-	rm -rf debian/${APPNAME}
+	rm -rf debian/$(APPNAME)
 override_dh_auto_test:
 override_dh_usrlocal:
 override_dh_auto_build:
 override_dh_auto_install:
 	mkdir -p $(INSTALLDIR)
-	rsync -av . $(INSTALLDIR) --exclude debian --exclude .git --exclude node_modules --exclude .gitignore --exclude test
-	cd $(INSTALLDIR) && npm install --production --no-audit --no-fund
+	rsync -a . $(INSTALLDIR) --exclude debian --exclude .git --exclude .github --exclude node_modules --exclude .gitignore --exclude test --exclude .nvmrc
+	cd $(INSTALLDIR) && npm ci --omit=dev --no-audit --no-fund
+
+# Don't build a separate -dbgsym package
+override_dh_strip:
+	dh_strip --no-automatic-dbgsym
+
+# Node addons reference symbols from the node binary itself, which is expected
+override_dh_shlibdeps:
+	dh_shlibdeps -- --warnings=0
+
+# Node native addons don't have the debug info layout dwz expects
+override_dh_dwz:
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)

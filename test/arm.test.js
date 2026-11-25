@@ -1,3 +1,4 @@
+const test = require('node:test');
 var assert = require('assert');
 var DummyArm = require('../lib/DummyArm.js').DummyArm;
 var parseAngle = require('../lib/Arm.js').parseAngle;
@@ -12,7 +13,7 @@ test('arm starts centred', function(){
   assert.deepStrictEqual(arm.servoState(), {base: 0, lower: 67, upper: 67, grip: 45});
 });
 
-test('move accepts message objects, numbers and numeric strings', function(done){
+test('move accepts message objects, numbers and numeric strings', function(t, done){
   var arm = fastArm();
   arm.moveBaseTo({arg: '30'});
   arm.moveLowerTo(100);
@@ -42,7 +43,7 @@ test('invalid angles are rejected and leave the servo alone', function(){
   assert.ok(isNaN(parseAngle(true)));
 });
 
-test('openGrip/closeGrip accept a bare callback', function(done){
+test('openGrip/closeGrip accept a bare callback', function(t, done){
   var arm = fastArm();
   arm.openGrip(function(status){
     if(status !== 'complete') return;

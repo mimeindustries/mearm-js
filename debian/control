@@ -2,12 +2,16 @@ Source: mearm-control
 Section: misc
 Priority: optional
 Maintainer: Ben Pirt <ben.pirt@mime.co.uk>
-Build-Depends: debhelper (>= 10), nodejs (>= 10), npm, rsync
-Standards-Version: 4.1.2
+# Node.js 22+ is needed at build time to install the npm modules (including native
+# ones), e.g. from NodeSource, whose nodejs package also provides npm.
+Build-Depends: debhelper-compat (= 13), nodejs (>= 22), rsync, python3, g++, make
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
 
 Package: mearm-control
-Architecture: armhf
-Depends: ${misc:Depends}, nodejs (>= 10), pigpio (>= 1.64-1)
+# Contains compiled Node.js modules, so it's built separately on each architecture
+Architecture: arm64 armhf
+Depends: ${shlibs:Depends}, ${misc:Depends}, nodejs (>= 22), gpiod
 Description: Control the MeArm
  Web and WebSocket server for controlling a MeArm Pi robot arm,
  including the joysticks and status LED on the MeArm Pi HAT.

@@ -1,21 +1,31 @@
 #!/bin/bash
+set -euo pipefail
 
-if [ "$#" -eq 1 ]
-then
-  DEBFILE=$1
+# Usage: bin/push-deb [file.deb ...]
+# Uploads the .deb files from the last build (or the ones given) to packagecloud.
+#
+# PACKAGECLOUD_TOKEN              API token
+# PACKAGECLOUD_DISTRO_VERSION_ID  packagecloud's numeric id for the target OS release
+#                                 (e.g. Debian bookworm or trixie); see
+#                                 https://packagecloud.io/docs/api#resource_distributions
+# PACKAGECLOUD_REPO               defaults to mimeindustries/headlesspi
+
+: "${PACKAGECLOUD_TOKEN:?Set PACKAGECLOUD_TOKEN first}"
+: "${PACKAGECLOUD_DISTRO_VERSION_ID:?Set PACKAGECLOUD_DISTRO_VERSION_ID to the packagecloud id for the target OS release}"
+REPO="${PACKAGECLOUD_REPO:-mimeindustries/headlesspi}"
+
+if [ "$#" -gt 0 ]; then
+  DEBFILES=("$@")
 else
-  DEBFILE="../$(grep -oP ".*\.deb" debian/files | grep -v dbgsym)"
+  mapfile -t DEBFILES < <(grep -oP '^\S+\.deb' debian/files | grep -v dbgsym | sed 's|^|../|')
 fi
 
-if [ ! -v PACKAGECLOUD_TOKEN ]
-then
-  echo "Set PACKAGECLOUD_TOKEN env variable first"
-  exit 1
-fi
-
-echo "Pushing $DEBFILE"
-
-curl -X POST https://packagecloud.io/api/v1/repos/mimeindustries/headlesspi/packages.json \
--u ${PACKAGECLOUD_TOKEN}: \
--F "package[distro_version_id]=155" \
--F "package[package_file]=@${DEBFILE}"
+for DEBFILE in "${DEBFILES[@]}"; do
+  echo "Pushing $DEBFILE"
+  # Pass the token via a config on stdin so it doesn't show up in the process list
+  printf 'user = "%s:"\n' "$PACKAGECLOUD_TOKEN" | curl --fail -sS -K - \
+    -X POST "https://packagecloud.io/api/v1/repos/${REPO}/packages.json" \
+    --form-string "package[distro_version_id]=${PACKAGECLOUD_DISTRO_VERSION_ID}" \
+    -F "package[package_file]=@${DEBFILE}"
+  echo
+done

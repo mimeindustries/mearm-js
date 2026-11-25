@@ -1,4 +1,9 @@
 #!/bin/bash
+set -euo pipefail
 
+# Builds mearm-control_<version>_<arch>.deb in the parent directory, for the
+# architecture of the machine it runs on. Run it on a 64-bit Raspberry Pi OS
+# for arm64 and on a 32-bit one for armhf.
+cd "$(dirname "$0")/.."
 export VERSION=$(node -p "require('./package.json').version")
 dpkg-buildpackage -us -uc -b

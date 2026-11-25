@@ -1,3 +1,4 @@
+const test = require('node:test');
 var assert = require('assert');
 var http = require('http');
 var WebSocket = require('ws');
@@ -24,7 +25,7 @@ test('parseArgs', function(){
   assert.deepStrictEqual(server.parseArgs([]), {ui: true, httpPort: 80, wsPort: 8899});
 });
 
-test('static server serves UI files with content types and blocks traversal', function(done){
+test('static server serves UI files with content types and blocks traversal', function(t, done){
   startServer(function(s, httpPort){
     get(httpPort, '/', function(res, body){
       assert.strictEqual(res.statusCode, 200);
@@ -52,7 +53,7 @@ test('static server serves UI files with content types and blocks traversal', fu
   });
 });
 
-test('websocket survives bad JSON and handles commands', function(done){
+test('websocket survives bad JSON and handles commands', function(t, done){
   startServer(function(s, httpPort, wsPort){
     var ws = new WebSocket('ws://127.0.0.1:' + wsPort);
     var got = [];

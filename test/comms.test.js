@@ -1,3 +1,4 @@
+const test = require('node:test');
 var assert = require('assert');
 var DummyArm = require('../lib/DummyArm.js').DummyArm;
 var MiroComms = require('../lib/MiroComms.js').MiroComms;
@@ -28,7 +29,7 @@ test('rejects non-object messages', function(){
   s.out.forEach(function(m){ assert.strictEqual(m.msg, 'Invalid message'); });
 });
 
-test('a move goes accepted then complete and blocks other moves meanwhile', function(done){
+test('a move goes accepted then complete and blocks other moves meanwhile', function(t, done){
   var s = setup();
   s.comms.handle_msg({cmd: 'moveBaseTo', arg: '20', id: 'a'});
   s.comms.handle_msg({cmd: 'moveLowerTo', arg: '20', id: 'b'});

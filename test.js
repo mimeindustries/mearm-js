@@ -1,20 +1,18 @@
-var MeArmPi   = require('./lib/MeArmPi.js').MeArmPi,
-    arm       = new MeArmPi();
+// Quick manual hardware check: moves the lower arm and opens/closes the gripper.
+var MeArmPi = require('./lib/MeArmPi.js').MeArmPi,
+    arm     = new MeArmPi();
 
-arm.moveLowerTo(90, function(res){
-  if(res === 'complete'){
-    arm.moveLowerTo(40, function(res2){
-      if(res2 === 'complete'){
-        arm.openGrip(function(res3){
-          if(res3 === 'complete'){
-            arm.closeGrip(function(res4){
-              if(res4 === 'complete'){
-              console.log('done');
-              }
-            });
-          }
-        });
-      }
-    });
-  }
-});
+var whenComplete = function(next){
+  return function(res){ if(res === 'complete') next(); };
+};
+
+arm.moveLowerTo(90, whenComplete(function(){
+  arm.moveLowerTo(40, whenComplete(function(){
+    arm.openGrip(null, whenComplete(function(){
+      arm.closeGrip(null, whenComplete(function(){
+        console.log('done');
+        process.exit(0);
+      }));
+    }));
+  }));
+}));

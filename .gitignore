@@ -41,3 +41,6 @@ debian/debhelper-build-stamp
 debian/files
 debian/mearm-control*
 !debian/mearm-control.service
+
+# Editor backups
+*~

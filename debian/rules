@@ -16,8 +16,8 @@ override_dh_usrlocal:
 override_dh_auto_build:
 override_dh_auto_install:
 	mkdir -p $(INSTALLDIR)
-	rsync -av . $(INSTALLDIR) --exclude debian --exclude .git --exclude node_modules --exclude .gitignore
-	cd $(INSTALLDIR) && npm install
+	rsync -av . $(INSTALLDIR) --exclude debian --exclude .git --exclude node_modules --exclude .gitignore --exclude test
+	cd $(INSTALLDIR) && npm install --production --no-audit --no-fund
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)

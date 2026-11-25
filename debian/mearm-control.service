@@ -4,11 +4,11 @@ After=network.target
 
 [Service]
 WorkingDirectory=/opt/mearm-control
+# Runs as root because pigpio needs direct access to the GPIO hardware
 ExecStart=/opt/mearm-control/bin/mearm-control --no-ui
-StandardOutput=syslog+console
-StandardError=syslog+console
+Restart=on-failure
+RestartSec=5
 Type=simple
 
 [Install]
 WantedBy=multi-user.target
-Alias=mearm-control
